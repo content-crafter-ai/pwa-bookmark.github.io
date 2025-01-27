@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark App</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Welcome to Bookmark App</h1>
+  <p>This app allows you to save shared URLs from your browser.</p>
+  <ul id="bookmarks"></ul>
+
+  <script>
+    // Display saved bookmarks
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]');
+    const bookmarkList = document.getElementById('bookmarks');
+
+    if (bookmarks.length > 0) {
+      bookmarks.forEach(({ title, url }) => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `<strong>${title}</strong>: <a href="${url}" target="_blank">${url}</a>`;
+        bookmarkList.appendChild(listItem);
+      });
+    } else {
+      bookmarkList.textContent = 'No bookmarks saved yet.';
+    }
+  </script>
+</body>
+</html>

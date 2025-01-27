@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bookmark</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>Bookmark Saved!</h1>
+  <p id="bookmark-title"></p>
+  <p id="bookmark-url"></p>
+  <a href="./index.html">Go to Home</a>
+
+  <script>
+    // Parse shared data
+    const urlParams = new URLSearchParams(window.location.search);
+    const title = urlParams.get('title');
+    const url = urlParams.get('url');
+
+    if (title && url) {
+      // Display shared data
+      document.getElementById('bookmark-title').textContent = `Title: ${title}`;
+      document.getElementById('bookmark-url').textContent = `URL: ${url}`;
+
+      // Save to localStorage
+      const bookmarks = JSON.parse(localStorage.getItem('bookmarks') || '[]');
+      bookmarks.push({ title, url });
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    } else {
+      document.body.innerHTML = '<p>No data received!</p><a href="./index.html">Go to Home</a>';
+    }
+  </script>
+</body>
+</html>
