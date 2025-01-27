@@ -1,7 +1,7 @@
 {
     "name": "Bookmark App",
     "short_name": "Bookmark",
-    "start_url": "/index.html",
+    "start_url": "/pwa-bookmark.github.io/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#007bff",
@@ -18,7 +18,7 @@
       }
     ],
     "share_target": {
-      "action": "/bookmark/",
+      "action": "/pwa-bookmark.github.io/bookmark/",
       "method": "GET",
       "params": {
         "title": "title",
