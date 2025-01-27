@@ -18,10 +18,11 @@
       }
     ],
     "share_target": {
-      "action": "/bookmark.html",
+      "action": "/bookmark/",
       "method": "GET",
       "params": {
         "title": "title",
+        "text": "text",
         "url": "url"
       }
     }
